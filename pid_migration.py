@@ -26,7 +26,8 @@ mapping = {
     '56350': '41428',
 }
 
-# initiate a list of the products we are eventually going to drop from the feed (products that are not matched in the mapping)
+# initiate a list of the products we are eventually going to drop from the feed
+# (products that are not matched in the mapping)
 removeList = list()
 
 # iterate through the products in the feed
