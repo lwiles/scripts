@@ -7,7 +7,7 @@ pid_migration.py and travelocity_transformer.py go hand in hand.  They are inten
 
 **pid_migration.py** is intended to perform a Product ID migration prior to a native content import. This is due to the fact that the client instance from which we were importing content and the destination client instance had overlapping Product ID's.
 
-**travelocity_transformer.py** performs several actions to transform the C2013 "Travelocity" Standard Client Feed (SCF) into a format that can be ingested by a new "Travelocityapi" client instance that inherit, for the most part, directly from "ExpediaHosted":
+**travelocity_transformer.py** performs several actions to transform the C2013 "Travelocity" Standard Client Feed (SCF) into a format that can be ingested by a new "Travelocityapi" client instance that inherits, for the most part, directly from "ExpediaHosted":
 
 * Transforms any "Pros" (Tags) into a comma separated string and places them into a single Additional Field ("PositiveRemarks")
 * Transforms any "Cons" (Tags) into a comma separated string and places them into a single Additional Field ("NegativeRemarks")
