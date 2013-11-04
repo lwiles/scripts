@@ -43,7 +43,7 @@ for product in root.iter('{0}Product'.format(namespace)):
         externalid.text = mapping[attributes[2][1]]
     except:
         # if there is no match between the Product's id and the mapping dict,
-        # add that Product's id to the "removeList"
+        # add that Product to the "removeList"
         removeList.append(product)
         pass
 
@@ -51,8 +51,8 @@ for product in root.iter('{0}Product'.format(namespace)):
 f = open('removed_ids.txt', 'w')
 
 for product in removeList:
-    # loop the through the Products in the "removeList" and add their id's to "removed_ids.txt"
-    # this allows us to track exactly which Product id's were not included in the mapping
+    # loop the through the Products in "removeList" and add their id's to "removed_ids.txt"
+    # this allows us to track which Product id's were not included in the mapping
     externalid = product.find('{0}ExternalId'.format(namespace))
     str_id = str(externalid.text)
     f.write(str_id + '\n')
