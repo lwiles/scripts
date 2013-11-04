@@ -18,7 +18,7 @@ ET.register_namespace('', 'http://www.bazaarvoice.com/xs/PRR/StandardClientFeed/
 tree = ET.parse(source_file)
 root = tree.getroot()
 
-# map the old product IDs to the new product IDs
+# map the old product IDs to the new product IDs (truncated)
 mapping = {
     '101036': '2856418',
     '116745': '3208251',
