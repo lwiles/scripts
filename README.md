@@ -11,7 +11,7 @@ pid_migration.py and travelocity_transformer.py go hand in hand.  They are inten
 
 * Transforms any "Pros" (Tags) into a comma separated string and places them into a single Additional Field ("PositiveRemarks")
 * Transforms any "Cons" (Tags) into a comma separated string and places them into a single Additional Field ("NegativeRemarks")
-* Transforms the external IDs of three Secondary Rating Dimensions
+* Transforms the ExternalId's of three Secondary Rating Dimensions
 * Deletes comments
 
 ### target_transformer.py
