@@ -1,8 +1,9 @@
 import csv
 import xml.etree.ElementTree as ET
+import datetime
 
 ###############################################
-# Travelocity Standard Client Feed Transformer
+# TrendMicro Native Content Feed Builder
 ###############################################
 
 # file definitions
@@ -40,7 +41,8 @@ for product in reviews:
         Review = ET.SubElement(Reviews, '{0}Review'.format(namespace), attrib={'id': str(reviewCounter)})
         reviewCounter += 1
         SubmissionTime = ET.SubElement(Review, '{0}SubmissionTime'.format(namespace))
-        SubmissionTime.text = review[3].replace('/', '-') + 'T12:00:00.000-00:00'
+        myDate = review[3].strip().split('/')
+        SubmissionTime.text = str(datetime.datetime(int(myDate[2]) + 2000, int(myDate[0]), int(myDate[1])).isoformat())
         Rating = ET.SubElement(Review, '{0}Rating'.format(namespace))
         Rating.text = review[2].strip()
         Title = ET.SubElement(Review, '{0}Title'.format(namespace))
@@ -51,6 +53,7 @@ for product in reviews:
             # print(review[5].strip().replace(' ', ''))
             UserProfileReference = ET.SubElement(Review, '{0}UserProfileReference'.format(namespace), attrib={'id': str(profileCounter)})
             ProfileExternalId = ET.SubElement(UserProfileReference, '{0}ExternalId'.format(namespace))
+            ProfileExternalId.text = str(profileCounter)
             profileCounter += 1
             DisplayName = ET.SubElement(UserProfileReference, '{0}DisplayName'.format(namespace))
             DisplayName.text = review[5].strip().replace(' ', '').decode('utf-8')
