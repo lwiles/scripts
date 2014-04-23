@@ -1,0 +1,7 @@
+~/media/prod/my/code/core/binary/my.dimensional.com/csmedia/
+
+find ./cms/ -name '*.jpg' -o -name '*.jpeg' | tar -czf jpgs.tar.gz -T -
+
+find ./cms/ -name '*.jpg' -exec mogrify -format png {} \;
+
+rsync -avz --ignore-existing --log-file=rsync_log.txt /Users/lwiles/Desktop/my1-prod_update/cms/ webuser@my1-prod:/opt/comms/my/code/core/binary/my.dimensional.com/csmedia/cms/
