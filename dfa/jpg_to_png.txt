@@ -1,7 +1,8 @@
-~/media/prod/my/code/core/binary/my.dimensional.com/csmedia/
+# find and zip all of the .jpg images
+find ./[target directory]/ -name '*.jpg' -o -name '*.jpeg' | tar -czf jpgs.tar.gz -T -
 
-find ./cms/ -name '*.jpg' -o -name '*.jpeg' | tar -czf jpgs.tar.gz -T -
+# batch convert all jpgs to pngs
+find ./[target directory]/ -name '*.jpg' -exec mogrify -format png {} \;
 
-find ./cms/ -name '*.jpg' -exec mogrify -format png {} \;
-
-rsync -avz --ignore-existing --log-file=rsync_log.txt /Users/lwiles/Desktop/my1-prod_update/cms/ webuser@my1-prod:/opt/comms/my/code/core/binary/my.dimensional.com/csmedia/cms/
+# sync the new pngs to the appropriate directory
+rsync -avz --ignore-existing --log-file=rsync_log.txt [source] [destination]
